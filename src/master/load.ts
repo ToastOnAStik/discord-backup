@@ -46,12 +46,14 @@ export async function conf(guild: Guild, backupData: BackupData) {
 export async function roles(guild: Guild, backupData: BackupData) {
     backupData.roles.forEach((roleData) => {
         guild.roles.create({
+            data: {
             // Create the role
                 name: roleData.name,
                 color: roleData.color,
                 hoist: roleData.hoist,
                 permissions: roleData.permissions,
-                mentionable: roleData.mentionable
+                mentionable: roleData.mentionable,
+            },
         });
     });
     return;
